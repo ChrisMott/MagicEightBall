@@ -74,7 +74,7 @@ public class MagicEightBall {
 
             for (int i = 0; i < 20; i++) {
 
-                System.out.println("Please enter the " + i + " response. A Magic Eight Ball has 20 responses");
+                System.out.println("Please enter the " + (i+1) + " response. A Magic Eight Ball has 20 responses");
 
                 String customR = question.nextLine();
 
@@ -93,15 +93,15 @@ public class MagicEightBall {
 
                 System.out.println("Ask the Magic Eight Ball a question and the all knowing Magic Eight Ball will give you answers.");
 
-                System.out.println("Enter your question below: ");
+                System.out.println("Enter your question below if you wish to stop, enter stop: ");
 
                 askTwo = whileBreaker.nextLine().toUpperCase();
 
-                System.out.println(askTwo);
+                //System.out.println(askTwo);
 
 
 
-                    
+
 
                     System.out.println(CustomEightBall.getRandomAnswerCustom(CustomEightBall.customResponses));
 
