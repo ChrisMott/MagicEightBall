@@ -1,7 +1,7 @@
 import java.util.*;
 
 
-public class MagicEightBall {
+public class MagicEightBall implements EightBall{
 
 
     protected static ArrayList<String> responses = new ArrayList<String>();
@@ -14,7 +14,7 @@ public class MagicEightBall {
 
 
 
-    public static String getRandomAnswer(ArrayList<String> responses){
+    static String getRandomAnswer(ArrayList<String> responses){
 
         Random randAnswer = new Random();
 
@@ -100,12 +100,18 @@ public class MagicEightBall {
                 //System.out.println(askTwo);
 
 
+                if(!askTwo.contains("STOP")) {
 
 
+                    System.out.println(CustomEightBall.getRandomAnswer(CustomEightBall.customResponses));
 
-                    System.out.println(CustomEightBall.getRandomAnswerCustom(CustomEightBall.customResponses));
+                 }else if(askTwo.contains("STOP")){
+
+                    System.out.println("Goodbye");
 
                 }
+
+            }
 
 
 
