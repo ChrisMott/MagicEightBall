@@ -1,10 +1,19 @@
 import java.util.*;
 
 
+
+
 public class MagicEightBall implements EightBall{
 
 
     protected static ArrayList<String> responses = new ArrayList<String>();
+
+    protected static HashMap<String, String> questionsRepsonses = new HashMap<String, String>();
+
+    protected static HashMap<String, String> questionsRepsonsesCustom = new HashMap<String, String>();
+
+
+
 
     static Scanner question = new Scanner(System.in);
 
@@ -64,7 +73,14 @@ public class MagicEightBall implements EightBall{
 
         String ask = question.nextLine();
 
-        System.out.println(MagicEightBall.getRandomAnswer(responses));
+        questionsRepsonses.put(ask, MagicEightBall.getRandomAnswer(responses));
+
+        System.out.println(questionsRepsonses.values());
+
+        //originally a part, trying to store questions and responses
+        //System.out.println(MagicEightBall.getRandomAnswer(responses));
+
+
 
         System.out.println("Do you wish to create your own Magic Eight Ball? Enter Y for yes or N for no.");
 
@@ -91,19 +107,42 @@ public class MagicEightBall implements EightBall{
             while(!askTwo.contains("STOP")){
 
 
+
+
                 System.out.println("Ask the Magic Eight Ball a question and the all knowing Magic Eight Ball will give you answers.");
 
                 System.out.println("Enter your question below if you wish to stop, enter stop: ");
 
-                askTwo = whileBreaker.nextLine().toUpperCase();
+                askTwo = whileBreaker.nextLine();
+
+                questionsRepsonsesCustom.put(askTwo, CustomEightBall.getRandomAnswer(CustomEightBall.customResponses));
+
+
+
+                askTwo = askTwo.toUpperCase();
+
+                for(String j : questionsRepsonsesCustom.keySet()){
+
+                    System.out.println("One of your questions was: " + j + " and the answer you received was " + questionsRepsonsesCustom.get(j));
+
+                    System.out.println();
+
+                }
+
+                //Part of original program, replacing for hash map.
+                //askTwo = whileBreaker.nextLine().toUpperCase();
 
                 //System.out.println(askTwo);
+
+
 
 
                 if(!askTwo.contains("STOP")) {
 
 
-                    System.out.println(CustomEightBall.getRandomAnswer(CustomEightBall.customResponses));
+
+                    //Part of original program, going to try hash map instead
+                    //System.out.println(CustomEightBall.getRandomAnswer(CustomEightBall.customResponses));
 
                  }else if(askTwo.contains("STOP")){
 
